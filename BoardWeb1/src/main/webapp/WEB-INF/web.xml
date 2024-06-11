@@ -8,7 +8,7 @@
 	<!-- url과 서블릿 매칭. -->
 	<servlet>
 		<servlet-name>front</servlet-name>
-		<servlet-class>co.yedam.FrontContrller</servlet-class>
+		<servlet-class>co.yedam.FrontController</servlet-class>
 	</servlet>
 
 	<servlet-mapping>

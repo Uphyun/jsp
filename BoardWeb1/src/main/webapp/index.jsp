@@ -8,5 +8,6 @@
 </head>
 <body>
  <h3>hello, World!!</h3>
+ <a href="main.do">Main 페이지로 이동</a>
 </body>
 </html>
