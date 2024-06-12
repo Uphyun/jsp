@@ -1,32 +1,31 @@
 package co.yedam.common;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-
-import co.yedam.mapper.BoardMapper;
-import co.yedam.vo.BoardVO;
-import co.yedam.vo.Student;
+import co.yedam.service.BoardService;
+import co.yedam.service.BoardServiceImpl;
 
 public class AppTest {
 	public static void main(String[] args) {
-		SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
-		SqlSession sqlSession = sqlSessionFactory.openSession();
+		BoardService svc = new BoardServiceImpl();
 		
-		//interface - 구현객체.
-		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		System.out.println(svc.getBoard(100));
 		
-		List<BoardVO> list = mapper.boardList();
-		for(BoardVO bvo : list) {
-			System.out.println("bvo.toString");
-		}
+//		SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
+//		SqlSession sqlSession = sqlSessionFactory.openSession();
+//		
+//		//interface - 구현객체.
+//		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+//		
+//		List<BoardVO> list = mapper.boardListpaging(3);
+//		for(BoardVO bvo : list) {
+//			System.out.println(bvo.toString());
+//		}
 		
-		BoardVO bvo = new BoardVO();
-		bvo.setBoardNo(4);
-		bvo.setTitle("어렵다어려워");
-		bvo.setContent("개발자하기..");
-		bvo.setWriter(null);
+//		BoardVO bvo = new BoardVO();
+//		bvo.setBoardNo(4);
+//		bvo.setTitle("어렵다어려워");
+//		bvo.setContent("개발자하기..");
+//		bvo.setWriter("이상현");
+//		bvo.setClickCnt(0);
 //		Student std = new Student();
 //		std.setStdNo("S0017");
 //		std.setStdName("김영식");		

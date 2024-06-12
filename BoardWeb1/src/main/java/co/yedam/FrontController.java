@@ -13,8 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.common.Control;
 import co.yedam.web.AddStudent;
 import co.yedam.web.BoardList;
+import co.yedam.web.GetBoard;
 import co.yedam.web.MainControl;
 import co.yedam.web.StudentForm;
+import co.yedam.web.addForm;
+import co.yedam.web.boardEdit;
+import co.yedam.web.boardForm;
+import co.yedam.web.editForm;
 import co.yedam.web.productControl;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭.
@@ -32,13 +37,17 @@ public class FrontController extends HttpServlet {
 		super.init();
 		map.put("/main.do", new MainControl());
 		map.put("/product.do", new productControl());
-		//map.put("/board.do", "게시판페이지입니다");
-		// 학생등록화면 studentForm.do
-		map.put("/studentForm.do", new StudentForm()); // 등록화면
+		map.put("/studentForm.do", new StudentForm()); // 학생등록화면 studentForm.do
 		map.put("/addStudent.do", new AddStudent()); //정보 db의 저장
+		map.put("/boardList.do", new BoardList());//게시글목록
+		map.put("/getBoard.do", new GetBoard());
+		map.put("/addForm.do", new addForm());
+		map.put("/boardForm.do", new boardForm());
+		map.put("/boardEdit.do", new boardEdit());
+		map.put("/editForm.do", new editForm());
 		
-		//게시글목록
-		map.put("/boardList.do", new BoardList());
+
+		
 	}
 	
 	@Override

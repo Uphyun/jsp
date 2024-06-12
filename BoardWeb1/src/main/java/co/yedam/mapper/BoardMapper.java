@@ -9,8 +9,10 @@ import co.yedam.vo.BoardVO;
  */
 public interface BoardMapper {
 	List<BoardVO> boardList();   //목록가져오기
+	List<BoardVO> boardListpaging(int page); // 페이지별로 5건씩
+	int getTotalCnt(); // 페이징 계산용도
 	int insertBoard(BoardVO bvo);
 	int updateBoard(BoardVO bvo);
 	int deleteBoard(int bno);
-	BoardVO selectBoard(int bno);
+	BoardVO selectBoard(int bno); // 단건조회.
 }

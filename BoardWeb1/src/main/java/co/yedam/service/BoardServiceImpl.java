@@ -11,37 +11,43 @@ import co.yedam.vo.BoardVO;
 
 public class BoardServiceImpl implements BoardService {
 	SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
-	SqlSession sqlSession = sqlSessionFactory.openSession();
+	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class); // <-- interface - 구현객체.
 	@Override
-	public List<BoardVO> boardList() {
+	public List<BoardVO> boardList(int page) {
 		// TODO Auto-generated method stub
-		return mapper.boardList();
+		return mapper.boardListpaging(page);
 	}
 
 	@Override
 	public BoardVO getBoard(int bno) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.selectBoard(bno);
 	}
 
 	@Override
 	public boolean addBoard(BoardVO bvo) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.insertBoard(bvo) == 1;
 	}
 
 	@Override
 	public boolean editBoard(BoardVO bvo) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.updateBoard(bvo) == 1; 
 	}
 
 	@Override
 	public boolean removeBoard(int bno) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public int boardTotal() {
+		// TODO Auto-generated method stub
+		return mapper.getTotalCnt();
 	}
 
 }

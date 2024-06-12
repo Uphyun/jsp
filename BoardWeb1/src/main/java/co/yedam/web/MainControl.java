@@ -28,6 +28,7 @@ public class MainControl implements Control {
 		SqlSession sqlSession  
 		= DataSource.getInstance().openSession();
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		
 		List<Student> list = mapper.selectBlog();
 		
 		req.setAttribute("student", student);
