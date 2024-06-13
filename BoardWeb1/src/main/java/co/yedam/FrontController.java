@@ -14,12 +14,17 @@ import co.yedam.common.Control;
 import co.yedam.web.AddStudent;
 import co.yedam.web.BoardList;
 import co.yedam.web.GetBoard;
+import co.yedam.web.LoginControl;
+import co.yedam.web.LoginForm;
+import co.yedam.web.LogoutControl;
 import co.yedam.web.MainControl;
 import co.yedam.web.StudentForm;
 import co.yedam.web.addForm;
-import co.yedam.web.boardEdit;
+import co.yedam.web.deleteBoard;
 import co.yedam.web.boardForm;
-import co.yedam.web.editForm;
+import co.yedam.web.deleteForm;
+import co.yedam.web.modifyBoard;
+import co.yedam.web.modifyForm;
 import co.yedam.web.productControl;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭.
@@ -43,8 +48,13 @@ public class FrontController extends HttpServlet {
 		map.put("/getBoard.do", new GetBoard());
 		map.put("/addForm.do", new addForm());
 		map.put("/boardForm.do", new boardForm());
-		map.put("/boardEdit.do", new boardEdit());
-		map.put("/editForm.do", new editForm());
+		map.put("/deleteBoard.do", new deleteBoard()); //삭제처리
+		map.put("/deleteForm.do", new deleteForm()); //삭제화면
+		map.put("/modifyForm.do", new modifyForm()); // 수정화면
+		map.put("/modifyBoard.do", new modifyBoard()); // 수정처리
+		map.put("/loginForm.do", new LoginForm());//로그인 화면
+		map.put("/login.do", new LoginControl());//로그린 실행
+		map.put("/logout.do", new LogoutControl());//로그아웃실행
 		
 
 		

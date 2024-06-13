@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../public/header.jsp" %>
-<h3>학생등록화면</h3>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:include page="../public/header.jsp" />
+<h3>학생등록화면(studentForm.jsp)</h3>
 <% String message = (String) request.getAttribute("message"); %>
 <form action="addStudent.do">
 <table class="table">
@@ -23,8 +24,8 @@
   </td>
  </tr>
 </table>
-<% if (message != null) { %>
-    <div class="error"><%= message %></div>
-<% } %>
+<c:if test="${message != null }">
+	<div class="error"><c:out value="${message }"/></div>
+</c:if>
 </form>
-<%@include file="../public/footer.jsp" %>
+<jsp:include page="../public/footer.jsp" />

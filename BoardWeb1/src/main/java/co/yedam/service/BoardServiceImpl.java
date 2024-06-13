@@ -41,13 +41,19 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public boolean removeBoard(int bno) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.deleteBoard(bno) == 1;
 	}
 	
 	@Override
 	public int boardTotal() {
 		// TODO Auto-generated method stub
 		return mapper.getTotalCnt();
+	}
+	
+	@Override
+	public boolean checkMember(String id, String pw) {
+		// TODO Auto-generated method stub
+		return mapper.selectMember(id, pw) == 1;
 	}
 
 }

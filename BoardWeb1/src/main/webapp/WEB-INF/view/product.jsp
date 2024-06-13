@@ -1,11 +1,13 @@
 <%@page import="co.yedam.vo.Student"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>prdouct.jsp</title>
 </head>
 <body>
 	<!-- webapp/WEB-INF/view/product.jsp -->
@@ -15,10 +17,10 @@
 	%>
 	<table border="2">
 	<tr>
-	<th>학생번호</th><td><%=student.getStdNo() %></td>
+	<th>학생번호</th><td><c:out value="${student.stdNo }"/></td>
 	</tr>
 	<tr>
-	<th>학생이름</th><td><%=student.getStdName() %></td>
+	<th>학생이름</th><td><c:out value="${student.stdname }"/></td>
 	</tr>
 	
 	</table>

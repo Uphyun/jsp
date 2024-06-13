@@ -49,7 +49,8 @@
   	
   	<update id="updateBoard" parameterType ="co.yedam.vo.BoardVO" >
   	update board_tbl
-  	set content = #{content}
+  	set title = #{title},
+  		content = #{content}
   	where board_no = #{boardNo}
   	</update>
   	
@@ -57,4 +58,11 @@
   	delete board_tbl
   	where board_no = #{boardNo}
   	</delete>
+  	
+  	<select id="selectMember" resultType="int">
+  		select count(1)
+  		from member_tbl
+  		where user_id = #{id}
+  		and   user_pw = #{pw}
+  	</select>
 </mapper>
