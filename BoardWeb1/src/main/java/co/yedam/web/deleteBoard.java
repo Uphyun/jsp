@@ -26,7 +26,7 @@ public class deleteBoard implements Control {
 		}else {
 			System.out.println("삭제실패..");
 			req.setAttribute("message", "처리중 오류 발생");
-			req.getRequestDispatcher("WEB-INF/view/editForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/deleteBoardForm.tiles").forward(req, resp);
 		}
 	}
 

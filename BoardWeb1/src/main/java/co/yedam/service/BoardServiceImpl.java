@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import co.yedam.common.DataSource;
 import co.yedam.mapper.BoardMapper;
 import co.yedam.vo.BoardVO;
+import co.yedam.vo.SearchVO;
 
 public class BoardServiceImpl implements BoardService {
 	SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
@@ -15,9 +16,9 @@ public class BoardServiceImpl implements BoardService {
 
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class); // <-- interface - 구현객체.
 	@Override
-	public List<BoardVO> boardList(int page) {
+	public List<BoardVO> boardList(SearchVO search) {
 		// TODO Auto-generated method stub
-		return mapper.boardListpaging(page);
+		return mapper.boardListpaging(search);
 	}
 
 	@Override
@@ -45,9 +46,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public int boardTotal() {
+	public int boardTotal(SearchVO search) {
 		// TODO Auto-generated method stub
-		return mapper.getTotalCnt();
+		return mapper.getTotalCnt(search);
 	}
 	
 	@Override

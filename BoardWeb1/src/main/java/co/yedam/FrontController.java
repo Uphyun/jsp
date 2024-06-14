@@ -45,9 +45,9 @@ public class FrontController extends HttpServlet {
 		map.put("/studentForm.do", new StudentForm()); // 학생등록화면 studentForm.do
 		map.put("/addStudent.do", new AddStudent()); //정보 db의 저장
 		map.put("/boardList.do", new BoardList());//게시글목록
-		map.put("/getBoard.do", new GetBoard());
-		map.put("/addForm.do", new addForm());
-		map.put("/boardForm.do", new boardForm());
+		map.put("/getBoard.do", new GetBoard()); //상세화면
+		map.put("/addForm.do", new addForm()); //게시글등록처리
+		map.put("/boardForm.do", new boardForm()); //게시글등록화면
 		map.put("/deleteBoard.do", new deleteBoard()); //삭제처리
 		map.put("/deleteForm.do", new deleteForm()); //삭제화면
 		map.put("/modifyForm.do", new modifyForm()); // 수정화면

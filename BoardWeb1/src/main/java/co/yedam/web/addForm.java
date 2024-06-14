@@ -40,7 +40,7 @@ public class addForm implements Control {
 		}else {
 			System.out.println("등록실패..");
 			req.setAttribute("message", "처리 중 오류 방생");
-			req.getRequestDispatcher("WEB-INF/view/boardForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/boardForm.tiles").forward(req, resp);
 		}
 	}
 

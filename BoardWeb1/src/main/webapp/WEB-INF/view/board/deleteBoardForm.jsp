@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
-<jsp:include page="../public/header.jsp" />
 
 <h3>상세화면(deleteBoardForm.jsp)</h3>
 <%
@@ -35,4 +34,3 @@
   </tr>
 </table>
 </form>
-<jsp:include page="../public/footer.jsp" />

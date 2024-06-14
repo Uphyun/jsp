@@ -1,26 +1,25 @@
-<%@page import="co.yedam.vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../public/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<h3>상세화면(board.jsp)</h3>
-<%
- BoardVO board = (BoardVO) request.getAttribute("board");
-%>
+<h3>수정화면(modifyBoard.do)</h3>
+
 <form action="modifyBoard.do">
+ <input type="hidden" value="${searchCondition }" name="searchCondition">
+  <input type="hidden" value="${keyword }" name="keyword">
+   <input type="hidden" value="${page }" name="page">
 <table class="table">
  <tr>
-   <th>글번호</th><td><input type="text" value="<%=board.getBoardNo() %>" name="bno"></td>
+   <th>글번호</th><td><input type="text" value="${board.boardNo}" name="bno"></td>
    <th>조회수</th><td></td>
  </tr>
  <tr>
- 	<th>제목</th><td><input type="text" value="<%=board.getTitle() %>" name="title"></td>
+ 	<th>제목</th><td><input type="text" value="${board.title}" name="title"></td>
  </tr>
  <tr>
    <th>내용</th>
    <td colspan="3">
-     <textarea class="form-control" name="content"><%=board.getContent() %></textarea>
+     <textarea class="form-control" name="content"><c:out value="${board.content }"></c:out></textarea>
     </td>
  </tr>
  <tr>
@@ -37,4 +36,3 @@
 
 
 
-<%@include file="../public/footer.jsp" %>    

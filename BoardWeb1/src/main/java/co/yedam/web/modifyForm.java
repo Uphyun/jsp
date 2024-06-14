@@ -17,15 +17,20 @@ public class modifyForm implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String bno=req.getParameter("bno"); // 글 번호"bno"대한 정보를 받아서 조회
+		String sc = req.getParameter("searchCondition");
+		String kw = req.getParameter("keyword");
+		String page = req.getParameter("page");
 		
 		BoardService svc = new BoardServiceImpl();
 		BoardVO board = svc.getBoard(Integer.parseInt(bno));
 	
 		//요정정보의 attribute(=borad)
 		req.setAttribute("board", board);
+		req.setAttribute("searchCondition", sc);
+		req.setAttribute("keyword", kw);
+		req.setAttribute("page", page);
 		
-		
-		req.getRequestDispatcher("WEB-INF/view/modifyBoardForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/modifyBoardForm.tiles").forward(req, resp);
 	}
 
 }
