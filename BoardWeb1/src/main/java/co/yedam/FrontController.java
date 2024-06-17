@@ -18,6 +18,8 @@ import co.yedam.web.LoginControl;
 import co.yedam.web.LoginForm;
 import co.yedam.web.LogoutControl;
 import co.yedam.web.MainControl;
+import co.yedam.web.MemberList;
+import co.yedam.web.ScriptForm;
 import co.yedam.web.StudentForm;
 import co.yedam.web.addForm;
 import co.yedam.web.deleteBoard;
@@ -55,7 +57,8 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());//로그인 화면
 		map.put("/login.do", new LoginControl());//로그린 실행
 		map.put("/logout.do", new LogoutControl());//로그아웃실행
-		
+		map.put("/memberList.do", new MemberList());//관리자 회원관리
+		map.put("/script.do", new ScriptForm());//자바스크립연습
 
 		
 	}

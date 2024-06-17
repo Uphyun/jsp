@@ -28,18 +28,18 @@ public class addForm implements Control {
 		
 		BoardService bsv = new BoardServiceImpl();
 		
-		BoardVO boardvo = new BoardVO();
-		boardvo.setTitle(title);
-		boardvo.setContent(content);
-		boardvo.setWriter(writer);
+		BoardVO bvo = new BoardVO();
+		bvo.setTitle(title);
+		bvo.setContent(content);
+		bvo.setWriter(writer);
 		 
-		if(bsv.addBoard(boardvo)) {
+		if(bsv.addBoard(bvo)) {
 		
 			System.out.println("정상등록..");
-			resp.sendRedirect("boardList.do");
+			resp.sendRedirect("board/boardList.tiles");
 		}else {
 			System.out.println("등록실패..");
-			req.setAttribute("message", "처리 중 오류 방생");
+			req.setAttribute("message", "처리 중 오류 발생");
 			req.getRequestDispatcher("board/boardForm.tiles").forward(req, resp);
 		}
 	}

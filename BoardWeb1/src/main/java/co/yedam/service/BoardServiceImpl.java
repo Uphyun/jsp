@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import co.yedam.common.DataSource;
 import co.yedam.mapper.BoardMapper;
 import co.yedam.vo.BoardVO;
+import co.yedam.vo.MemberVO;
 import co.yedam.vo.SearchVO;
 
 public class BoardServiceImpl implements BoardService {
@@ -52,9 +53,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public boolean checkMember(String id, String pw) {
+	public MemberVO checkMember(String id, String pw) {
 		// TODO Auto-generated method stub
-		return mapper.selectMember(id, pw) == 1;
+		return mapper.selectMember(id, pw);
 	}
 
 }

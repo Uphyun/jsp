@@ -3,6 +3,7 @@ package co.yedam.service;
 import java.util.List;
 
 import co.yedam.vo.BoardVO;
+import co.yedam.vo.MemberVO;
 import co.yedam.vo.SearchVO;
 
 /*
@@ -19,5 +20,5 @@ public interface BoardService {
 	boolean removeBoard(int bno);
 	
 	// checkMember(id, pw)
-	boolean checkMember(String id, String pw);
+	MemberVO checkMember(String id, String pw);
 }
