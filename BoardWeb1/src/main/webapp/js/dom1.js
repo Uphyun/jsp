@@ -5,7 +5,6 @@
  document.getElementById('fruit').style.display = 'none';
  document.querySelector('table.table tr:nth-of-type(5)').setAttribute('align','center'); // 가운데 정렬
  //------페이지가 로딩하면서 회원3명 바로 출력-----
- console.log(myMembers);
 for(let mem of myMembers){
 	
 	document.getElementById('memberList').appendChild(addRow(mem));
