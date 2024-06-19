@@ -12,13 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
 import co.yedam.web.AddStudent;
+import co.yedam.web.AjaxForm;
 import co.yedam.web.BoardList;
+import co.yedam.web.CheckIdAjax;
+import co.yedam.web.DeleteIdAjax;
 import co.yedam.web.GetBoard;
 import co.yedam.web.LoginControl;
 import co.yedam.web.LoginForm;
 import co.yedam.web.LogoutControl;
 import co.yedam.web.MainControl;
+import co.yedam.web.MemberAddAjax;
+import co.yedam.web.MemberAjax;
 import co.yedam.web.MemberList;
+import co.yedam.web.ModifyAjax;
 import co.yedam.web.ScriptForm;
 import co.yedam.web.StudentForm;
 import co.yedam.web.addForm;
@@ -59,8 +65,13 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new LogoutControl());//로그아웃실행
 		map.put("/memberList.do", new MemberList());//관리자 회원관리
 		map.put("/script.do", new ScriptForm());//자바스크립연습
-
-		
+	    map.put("/ajax.do", new AjaxForm()); // 아작스 연습
+	    map.put("/memberAjax.do", new MemberAjax());
+	    map.put("/addAjax.do", new MemberAddAjax());
+	    map.put("/checkIdAjax.do", new CheckIdAjax());
+	    map.put("/deleteIdAjax.do", new DeleteIdAjax());
+	    map.put("/modifyAjax.do", new ModifyAjax());
+	    
 	}
 	
 	@Override

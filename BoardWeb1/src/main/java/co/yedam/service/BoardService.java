@@ -18,7 +18,15 @@ public interface BoardService {
 	boolean addBoard(BoardVO bvo); // 등록
 	boolean editBoard(BoardVO bvo); // 편집
 	boolean removeBoard(int bno);
-	
+	List<MemberVO> memberList();
 	// checkMember(id, pw)
 	MemberVO checkMember(String id, String pw);
+	
+	boolean addMemberAjaxs(MemberVO mvo);
+	boolean checkMemberId(String id);
+	boolean deleteMemberId(String id);
+	boolean modifyMemberAjaxs(MemberVO mvo);
+	
+	
+	
 }

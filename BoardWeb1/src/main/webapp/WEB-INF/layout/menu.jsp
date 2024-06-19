@@ -16,9 +16,8 @@
                      </c:otherwise>
                     </c:choose>
                     
-                 
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addMemberForm.do">회원가입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="script.do">자바스크립트</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">atatus</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">btatus</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="ajax.do">Ajax연습</a>
                 </div>
             </div>
