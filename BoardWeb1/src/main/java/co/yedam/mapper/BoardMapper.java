@@ -23,7 +23,7 @@ public interface BoardMapper {
 	//회원 id, 회원 pw
 	MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);//회원 id, 회원 비번
 	
-	//ajas 관련
+	//Ajas 관련
 	List<MemberVO> memberList();
 	int insertMemberAjax(MemberVO mvo);
 	int selectMemberAjax(String id);

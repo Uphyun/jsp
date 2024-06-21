@@ -2,14 +2,35 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<style>
+.center {
+  text-align: center;
+}
 
+.pagination {
+  display: inline-block;
+}
 
-<p>------board.jsp-------</p>
-<c:set var="name" value="hong"></c:set>  <!--  변수값을 넣어주는 명령어 c:set -->
-<c:forEach var="i" begin="1" end="5" step="1">
-<p>${i}</p>
-</c:forEach>
-<p>${board}</p>
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+
+<h1>상세화면(board.jsp)</h1>
 <form name="myFrm" action="deleteForm.do">
   <input type="hidden" value="${board.boardNo}" name="bno">
   <input type="hidden" value="${searchCondition }" name="searchCondition">
@@ -55,12 +76,74 @@
 		
 			</td>
 		</tr>
+		<tr>
+		 <td colspan="3" align="center"> 
+	      <a href="boardList.do?page=${page }&searchCondition=${searchCondition}&keyword=${keyword}" type="button" class="btn btn-primary">목록으로 이동하기</a>
+		 </td>
+		</tr>
 	</table>
 
  </form>
+ <!--  댓글관련 -->
+ <div class="container reply">
  
+  <div class="header">
+    <input class="col-sm-8" id="reply">
+    <button class="col-sm-3" id="addReply">등록</button>
+  </div>
+  
+ 	<div class="content">
+ 	 <ul>
+ 	  <li>
+ 	   <span class="col-sm-1">글번호</span>
+ 	   <span class="col-sm-4">글내용</span>
+ 	   <span class="col-sm-2">작성자</span>
+ 	   <span class="col-sm-3">작성일시</span>
+ 	   <span class="col-sm-1">삭제</span>
+ 	   
+ 	  </li>
+ 	  <li><hr /></li>
+ 	  <li style=" display: none ">
+ 	   <span class="col-sm-1">3</span>
+ 	   <span class="col-sm-4">글을 잘봤습니다.</span>
+ 	   <span class="col-sm-2">user01</span>
+ 	   <span class="col-sm-3">2024-05-08 13:22:34</span>
+ 	   <span class="col-sm-1"><button onclick="deleteRow(event)">삭제</button></span>
+ 	  </li>
+ 	 </ul>
+ 	</div>
+ </div>
+ 
+ <!--  댓글 페이징 목록 -->
+<div class="footer">
+	<div class="center">
+		<div class="pagination">
+			<a href="#">1</a> 
+			<a href="#" class="active">2</a> 
+			<a href="#">3</a> 
+			<a href="#">4</a>
+		</div>
+	</div>
+</div>
+<style>
+  div.reply div{
+  	margin: auto;
+  }
+  div.reply ul{
+  	list-style-type: none;
+  	margin-top: 3px;
+  }
+  div.reply li{
+  	padding-top:1px;
+  	padding-bottom:1px;
+  }
+  div.reply span{
+  	display: inline-block;
+  }
+ </style>
  <script>
-console.log(document.querySelector('#modBtn'))
+ 	const bno = "${board.boardNo }";
+ 	const replyer = "${logId}";
 	document.querySelector('#modBtn').addEventListener('click',
 			function(e) {
 				//삭제화면 이동일 경우에는 removeForm.do
@@ -70,6 +153,7 @@ console.log(document.querySelector('#modBtn'))
 			});
 	
 </script>
-  <a href="boardList.do?page=${page }&searchCondition=${searchCondition}&keyword=${keyword}" type="button" class="btn btn-primary">목록으로 이동하기</a>
+<script src="js/replyService.js"></script>
+<script src="js/replyS.js"></script>
   
 
