@@ -51,9 +51,9 @@ function searchByAddress() {
 		alert('검색조건을 입력하세요.');
 		return;
 	}
-	// 검색결과출력.
-	// centerList.filter(center => center.address.indexOf(searchWord) != -1) //
-	// 	.forEach(center => target.appendChild(makeRow(center)));
+	 검색결과출력.
+	 centerList.filter(center => center.address.indexOf(searchWord) != -1) //
+	 	.forEach(center => target.appendChild(makeRow(center)));
 
 	// 검색키워드 굵게 표시하기.
 	centerList.reduce((acc, center) => {
